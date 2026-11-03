@@ -1,4 +1,3 @@
-
 package com.oneview.banking.model;
 
 import jakarta.persistence.*;
