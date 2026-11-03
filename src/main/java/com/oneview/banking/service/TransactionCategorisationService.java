@@ -25,6 +25,12 @@ public class TransactionCategorisationService {
             return "Groceries";
         }
 
+        // Food delivery
+        // Must appear before Transport to distinguish Uber Eats from Uber.
+        if (name.contains("uber eats")) {
+            return "Food & Dining";
+        }
+
         // Transport
         if (name.contains("uber")
                 || name.contains("bolt")
@@ -36,6 +42,7 @@ public class TransactionCategorisationService {
         }
 
         // Entertainment
+        // Must appear before Shopping to distinguish Amazon Prime from Amazon.
         if (name.contains("netflix")
                 || name.contains("spotify")
                 || name.contains("prime video")
