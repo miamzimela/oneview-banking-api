@@ -1,10 +1,9 @@
 # OneView Banking API
 
-A Java Spring Boot REST API designed to aggregate, categorise, and analyse financial transactions from multiple banking data sources.
-
+A Java Spring Boot REST API designed to manage, categorise, and analyse Capitec Bank financial transactions, providing insights into customer spending patterns and financial activity.
 ## Project Overview
 
-OneView Banking API is a backend application that aims to provide a consolidated view of financial transactions across different banking platforms.
+OneView Banking API is a backend application designed to provide a consolidated view of Capitec Bank customer transactions. The application enables transaction management, spending categorisation, and financial analysis to help users better understand their financial behaviour.
 
 The project demonstrates RESTful API development, database persistence, transaction management, and automated testing using Java and Spring Boot.
 
@@ -108,8 +107,7 @@ Latest verified test results:
 
 ## Future Enhancements
 
-- Integrate multiple mock banking data sources
-- Implement automatic transaction categorisation
+- Implement Capitec transaction data import and processing
 - Generate spending summaries by category
 - Provide consolidated financial insights
 - Add filtering and reporting functionality
@@ -119,7 +117,7 @@ Latest verified test results:
 
 **In Development**
 
-The core transaction REST API has been implemented and successfully tested. Additional financial aggregation and analysis features are planned.
+The core Capitec transaction REST API has been implemented and successfully tested. Additional features, including automatic transaction categorisation, spending analysis, and financial reporting, are planned for future development.
 
 ## Author
 
