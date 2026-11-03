@@ -11,9 +11,14 @@ import java.util.Optional;
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
+    private final TransactionCategorisationService categorisationService;
 
-    public TransactionService(TransactionRepository transactionRepository) {
+    public TransactionService(
+            TransactionRepository transactionRepository,
+            TransactionCategorisationService categorisationService) {
+
         this.transactionRepository = transactionRepository;
+        this.categorisationService = categorisationService;
     }
 
     public List<Transaction> getAllTransactions() {
@@ -29,7 +34,12 @@ public class TransactionService {
     }
 
     public Transaction saveTransaction(Transaction transaction) {
+
+        String category = categorisationService
+                .categoriseTransaction(transaction.getMerchant());
+
+        transaction.setCategory(category);
+
         return transactionRepository.save(transaction);
     }
 }
-

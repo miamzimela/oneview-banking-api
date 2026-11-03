@@ -14,13 +14,23 @@ import static org.mockito.Mockito.*;
 class TransactionServiceTest {
 
     private TransactionRepository transactionRepository;
+    private TransactionCategorisationService categorisationService;
     private TransactionService transactionService;
+
 
     @BeforeEach
     void setUp() {
         transactionRepository = mock(TransactionRepository.class);
-        transactionService = new TransactionService(transactionRepository);
+
+        categorisationService =
+                mock(TransactionCategorisationService.class);
+
+        transactionService = new TransactionService(
+                transactionRepository,
+                categorisationService
+        );
     }
+
 
     @Test
     void shouldGetAllTransactions() {
