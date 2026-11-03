@@ -1,3 +1,4 @@
+
 package com.oneview.banking.service;
 
 import org.springframework.stereotype.Service;
@@ -25,9 +26,18 @@ public class TransactionCategorisationService {
             return "Groceries";
         }
 
-        // Food delivery
-        // Must appear before Transport to distinguish Uber Eats from Uber.
-        if (name.contains("uber eats")) {
+        // Restaurants and Takeaways
+        // Uber Eats must be checked before Uber.
+        if (name.contains("uber eats")
+                || name.contains("ubereats")
+                || name.contains("mcdonald")
+                || name.contains("kfc")
+                || name.contains("nando")
+                || name.contains("steers")
+                || name.contains("deb onairs")
+                || name.contains("debonairs")
+                || name.contains("spur")
+                || name.contains("romans pizza")) {
             return "Food & Dining";
         }
 
@@ -37,12 +47,13 @@ public class TransactionCategorisationService {
                 || name.contains("engen")
                 || name.contains("shell")
                 || name.contains("sasol")
-                || name.contains("bp")) {
+                || name.contains("bp")
+                || name.contains("gautrain")) {
             return "Transport";
         }
 
         // Entertainment
-        // Must appear before Shopping to distinguish Amazon Prime from Amazon.
+        // Amazon Prime Video is separate from Amazon Shopping.
         if (name.contains("netflix")
                 || name.contains("spotify")
                 || name.contains("prime video")
@@ -50,17 +61,6 @@ public class TransactionCategorisationService {
                 || name.contains("disney+")
                 || name.contains("disney plus")) {
             return "Entertainment";
-        }
-
-        // Restaurants and Takeaways
-        if (name.contains("mcdonald")
-                || name.contains("kfc")
-                || name.contains("nando")
-                || name.contains("steers")
-                || name.contains("debonairs")
-                || name.contains("spur")
-                || name.contains("romans pizza")) {
-            return "Food & Dining";
         }
 
         // Shopping
@@ -84,11 +84,13 @@ public class TransactionCategorisationService {
         }
 
         // Telecommunications
+        // Use "rain mobile" instead of "rain" to
+        // avoid incorrectly categorising Gautrain.
         if (name.contains("vodacom")
                 || name.contains("mtn")
                 || name.contains("telkom")
                 || name.contains("cell c")
-                || name.contains("rain")) {
+                || name.contains("rain mobile")) {
             return "Telecommunications";
         }
 
