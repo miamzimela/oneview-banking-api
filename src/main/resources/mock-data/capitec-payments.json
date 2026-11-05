@@ -1,0 +1,47 @@
+[
+  {
+    "transactionId": "PAY001",
+    "customerId": "CUST001",
+    "merchant": "Netflix",
+    "amount": 199.00,
+    "category": "Entertainment",
+    "source": "Capitec",
+    "transactionDate": "2026-11-01"
+  },
+  {
+    "transactionId": "PAY002",
+    "customerId": "CUST001",
+    "merchant": "Vodacom",
+    "amount": 399.00,
+    "category": "Telecommunications",
+    "source": "Capitec",
+    "transactionDate": "2026-11-02"
+  },
+  {
+    "transactionId": "PAY003",
+    "customerId": "CUST001",
+    "merchant": "Insurance Premium",
+    "amount": 850.00,
+    "category": "Insurance",
+    "source": "Capitec",
+    "transactionDate": "2026-11-03"
+  },
+  {
+    "transactionId": "PAY004",
+    "customerId": "CUST001",
+    "merchant": "Eskom Electricity",
+    "amount": 600.00,
+    "category": "Utilities",
+    "source": "Capitec",
+    "transactionDate": "2026-11-04"
+  },
+  {
+    "transactionId": "PAY005",
+    "customerId": "CUST001",
+    "merchant": "Spotify",
+    "amount": 79.99,
+    "category": "Entertainment",
+    "source": "Capitec",
+    "transactionDate": "2026-11-05"
+  }
+]

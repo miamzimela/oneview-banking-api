@@ -1,0 +1,38 @@
+[
+  {
+    "transactionId": "TRF001",
+    "customerId": "CUST001",
+    "merchant": "Rent Payment",
+    "amount": 4500.00,
+    "category": "Housing",
+    "source": "Capitec",
+    "transactionDate": "2026-11-01"
+  },
+  {
+    "transactionId": "TRF002",
+    "customerId": "CUST001",
+    "merchant": "Family Transfer",
+    "amount": 750.00,
+    "category": "Transfers",
+    "source": "Capitec",
+    "transactionDate": "2026-11-02"
+  },
+  {
+    "transactionId": "TRF003",
+    "customerId": "CUST001",
+    "merchant": "Savings Transfer",
+    "amount": 1000.00,
+    "category": "Savings",
+    "source": "Capitec",
+    "transactionDate": "2026-11-03"
+  },
+  {
+    "transactionId": "TRF004",
+    "customerId": "CUST001",
+    "merchant": "School Fees",
+    "amount": 1200.00,
+    "category": "Education",
+    "source": "Capitec",
+    "transactionDate": "2026-11-04"
+  }
+]
