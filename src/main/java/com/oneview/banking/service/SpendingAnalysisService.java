@@ -5,9 +5,7 @@ import com.oneview.banking.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.YearMonth;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -27,8 +25,7 @@ public class SpendingAnalysisService {
     public List<Transaction> getCustomerTransactions(
             String customerId) {
 
-        return transactionRepository
-                .findByCustomerId(customerId);
+        return transactionRepository.findByCustomerId(customerId);
     }
 
     // Calculate total spending for a customer
@@ -44,6 +41,7 @@ public class SpendingAnalysisService {
 
         return getCustomerTransactions(customerId)
                 .stream()
+                .filter(this::isSpendingTransaction)
                 .filter(t -> t.getAmount() != null)
                 .collect(Collectors.groupingBy(
                         t -> t.getCategory() == null
@@ -88,13 +86,27 @@ public class SpendingAnalysisService {
                 .orElse("No spending data");
     }
 
-    // Calculate total for a list of transactions
+    // Calculate total spending, excluding savings transfers
     private BigDecimal calculateTotal(
             List<Transaction> transactions) {
 
         return transactions.stream()
+                .filter(this::isSpendingTransaction)
                 .map(Transaction::getAmount)
                 .filter(Objects::nonNull)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    // Determine whether a transaction counts as spending
+    private boolean isSpendingTransaction(
+            Transaction transaction) {
+
+        if (transaction.getCategory() == null) {
+            return true;
+        }
+
+        return !"Savings".equalsIgnoreCase(
+                transaction.getCategory().trim()
+        );
     }
 }
